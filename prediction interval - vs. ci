@@ -1,0 +1,27 @@
+#prediction intervals 
+#what range of study correlation values might you expect due to sampling error alone 
+
+library(predictionInterval)
+
+#previous study got r=.41 based on n = 70 
+#want to conduct a replication using a sample of n = 214
+
+#confidence interval = .19 to .59 -> means population correlation responsible for .41 could be as low as .19 or high .59
+
+psych::r.con(r=.41, n=70)
+
+#prediction interval - what replication correlation range can you get just from sampling error though 
+
+pi.r(r=0.41,n=70,rep.n=214)
+
+#Original study: r = 0.41, N = 70, 95% CI[0.19, 0.59]
+#Replication study: N = 214
+#Prediction interval: 95% PI[0.17,0.62].
+
+##interpretation 
+# If the replication correlation differs from the original correlation only due to sampling error, 
+#there is a 95% chance the replication result will fall in this interval. 
+#If the replication correlation falls outside of this range, factors beyond sampling error are likely 
+#also responsible for the difference.
+
+#wide range because sample size is small 
